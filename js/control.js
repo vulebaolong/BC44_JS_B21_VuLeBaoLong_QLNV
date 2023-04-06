@@ -103,12 +103,11 @@ function getValueForm() {
     const fullName = document.querySelector("#name").value.trim();
     const email = document.querySelector("#email").value.trim();
     const datepicker = document.querySelector("#datepicker").value;
-    const wage = +document.querySelector("#luongCB").value.trim();
+    const wage = +document.querySelector("#luongCB").value.trim().replaceAll(",", "");
     const positionValue = document.querySelector("#chucvu").value.trim();
     const positionSelected = document.querySelector("#chucvu").selectedIndex;
     const timeWork = document.querySelector("#gioLam").value.trim();
     const password = document.querySelector("#password").value.trim();
-
     return {
         userName,
         fullName,
@@ -134,7 +133,7 @@ function render(resultEl, arr) {
         <td>${e.email}</td>
         <td>${e.datepicker}</td>
         <td>${e.position.value}</td>
-        <td>${e.totalWage()}</td>
+        <td>${formatCurrency(e.totalWage())}</td>
         <td>${e.sort()}</td>
         <td style=" display: flex; gap: 5px;">
             <button type="button" class="btn btn-success btn-edit" data-toggle="modal" data-target="#myModal">
@@ -191,4 +190,9 @@ function init() {
 
     //render
     render(listPersonnelEl, arrPersonnel);
+}
+
+// FORMAT CURRENCY
+function formatCurrency(num, locale = navigator.language) {
+    return new Intl.NumberFormat(locale).format(num);
 }

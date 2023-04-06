@@ -1,3 +1,7 @@
+new Cleave("#luongCB", {
+    numeral: true,
+});
+
 // =========================================================================
 
 const addPersonnelBtn = document.querySelector("#btnThemNV");
