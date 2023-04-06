@@ -33,7 +33,7 @@ addPersonnelBtn.addEventListener("click", () => {
     render(listPersonnelEl, arrPersonnel);
 });
 
-// CLICK DELETE
+// CLICK DELETE AND EDIT
 listPersonnelEl.addEventListener("click", (e) => {
     const element = e.target;
     //click Xóa

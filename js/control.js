@@ -73,7 +73,7 @@ function edit(id, arr) {
     document.querySelector("#name").value = arr[index].fullName;
     document.querySelector("#email").value = arr[index].email;
     document.querySelector("#datepicker").value = arr[index].datepicker;
-    document.querySelector("#luongCB").value = arr[index].wage;
+    document.querySelector("#luongCB").value = formatCurrency(arr[index].wage);
     document.querySelector("#chucvu").value = arr[index].position.value;
     document.querySelector("#gioLam").value = arr[index].timeWork;
     document.querySelector("#password").value = arr[index].password;
