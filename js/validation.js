@@ -211,7 +211,7 @@ function validation(value, isOnly = true) {
             validationWage(
                 value.wage,
                 "#tbLuongCB",
-                "Lương phải từ 10,000,000 đến 20,000,000"
+                "Lương phải từ 1,000,000 đến 20,000,000"
             ));
 
     //position
