@@ -156,6 +156,8 @@ function saveLocalStorage(value) {
 // GET GIÁ TRỊ Ở LOCAL
 function getLocalStorage(value) {
     const valueJson = localStorage.getItem(value);
+    console.log(localStorage.getItem(value));
+    if (valueJson === "undefined") return;
     const valueArray = JSON.parse(valueJson);
     return valueArray;
 }
