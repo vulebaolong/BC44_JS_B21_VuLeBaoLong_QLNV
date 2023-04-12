@@ -149,15 +149,46 @@ function render(resultEl, arr) {
 }
 
 // SAVE VÀO LOCAL
+/**
+ * hàm nhận value là giá trị muốn lưu
+ *
+ * hàm sẽ tự chuyển từ đối tượng javascript sang JSON nhờ vào JSON.stringify(value)
+ *
+ * lưu vào localStorage bằng hàm có sẵn của javascript là localStorage.setItem với key "DATA_PERSONNEL"
+ *
+ * @param value là giá trị muốn lưu
+ */
 function saveLocalStorage(value) {
-    localStorage.setItem("DATA_PERSONNEL", JSON.stringify(value));
+    // chuyển đổi giá trị từ đối tượng javascript sang JSON
+    const stringJson = JSON.stringify(value);
+
+    // luu vào localStorage với key là DATA_PERSONNEL
+    localStorage.setItem("DATA_PERSONNEL", stringJson);
 }
 
 // GET GIÁ TRỊ Ở LOCAL
-function getLocalStorage(value) {
-    const valueJson = localStorage.getItem(value);
-    if (valueJson === "undefined") return;
+/**
+ * hàm lấy giá trị value đang có trong localStorage bằng key
+ *
+ * kiểm tra nếu value là undefined thì return false
+ *
+ * chuyển giá trị lấy được từ localStorage sang đối tượng javascript
+ *
+ * trả về giá  trị chuyển
+ * @param key là key chứa value muốn lấy trong localStorage
+ * @returns giá trị lấy được từ localStorage đã được chuyển sang đối tượng javascript
+ */
+function getLocalStorage(key) {
+    // lấy giá từ localStorage bằng key
+    const valueJson = localStorage.getItem(key);
+
+    // kiểm tra nếu giá trị lấy là undefined thì hàm trả về luôn false không chạy code ở dưới
+    if (valueJson === "undefined") return false;
+
+    // chuyển chuỗi json trong localStorage thành đối tượng javascript
     const valueArray = JSON.parse(valueJson);
+
+    // trả về kết quả đã chuyển từ chuỗi json trong localStorage thành đối tượng javascript
     return valueArray;
 }
 

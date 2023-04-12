@@ -16,8 +16,8 @@ function validationEmpty(value, selector) {
 }
 
 function validationUserName(value, selector, message) {
-    const valueLength = value.length;
-    if (valueLength >= 4 && valueLength <= 6) {
+    // const valueLength = value.length;
+    if (value.match(/^[0-9]{4,6}$/gi)) {
         showMessage(selector, "");
         return true;
     } else {
